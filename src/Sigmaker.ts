@@ -1,13 +1,11 @@
 class Sigmaker {
     private sigs: string[] = new Array()
-    private readonly _aobValidator: IAobValidator
 
-    constructor(aobValidator: IAobValidator = new AobValidator()) {
-        this._aobValidator = aobValidator
+    constructor(private readonly aobValidator: IAobValidator = new AobValidator()) {
     }
 
     private internalPush(signature: string) {
-        let [success, message] = this._aobValidator.IsValid(signature)
+        let [success, message] = this.aobValidator.IsValid(signature)
         if (success) {
             this.sigs.push(signature)
         }

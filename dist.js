@@ -20,11 +20,11 @@ class AobValidator {
 }
 class Sigmaker {
     constructor(aobValidator = new AobValidator()) {
+        this.aobValidator = aobValidator;
         this.sigs = new Array();
-        this._aobValidator = aobValidator;
     }
     internalPush(signature) {
-        let [success, message] = this._aobValidator.IsValid(signature);
+        let [success, message] = this.aobValidator.IsValid(signature);
         if (success) {
             this.sigs.push(signature);
         }

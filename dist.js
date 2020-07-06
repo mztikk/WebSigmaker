@@ -152,19 +152,28 @@ function OnGenButtonClick(self) {
         errorNotification(error);
     }
 }
-function errorNotification(message) {
-    let msgDiv = document.createElement("div");
-    msgDiv.innerText = String(message);
-    msgDiv.classList.add("alert");
-    msgDiv.classList.add("gone");
-    document.body.appendChild(msgDiv);
+let notifDiv;
+function errorNotification(message, displayTime = 5000) {
+    let removeOnEnd = () => {
+        if (notifDiv) {
+            notifDiv.remove();
+            notifDiv = null;
+        }
+    };
+    if (notifDiv) {
+        removeOnEnd();
+    }
+    notifDiv = document.createElement("div");
+    notifDiv.innerText = String(message);
+    notifDiv.classList.add("alert");
+    notifDiv.classList.add("slide-bottom");
+    document.body.appendChild(notifDiv);
     setTimeout(() => {
-        msgDiv.classList.remove("gone");
-        setTimeout(() => {
-            msgDiv.classList.add("gone");
-            setTimeout(() => {
-                msgDiv.remove();
-            }, 500);
-        }, 3000);
-    }, 100);
+        if (notifDiv) {
+            notifDiv.classList.remove("slide-bottom");
+            notifDiv.classList.add("slide-out-top");
+            notifDiv.addEventListener('webkitAnimationEnd', removeOnEnd);
+            notifDiv.addEventListener('animationend', removeOnEnd);
+        }
+    }, displayTime);
 }

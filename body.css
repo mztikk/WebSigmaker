@@ -15,6 +15,7 @@
     --text-normal: #ffffff;
     --border: var(--background5);
     --highlight: var(--blue);
+    --focus: var(--pink)
 }
 
 * {
@@ -22,12 +23,38 @@
     color: var(--text-normal);
 }
 
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html,
 body {
-    padding: 0;
-    margin: 0;
-
     background-color: var(--background1);
+}
+
+textarea {
+    background-color: var(--background2);
+}
+
+textarea:hover {
+    border-color: var(--highlight);
+}
+
+textarea:focus {
+    border-color: var(--focus);
+}
+
+button {
+    background-color: var(--background2);
+
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 textarea {
@@ -61,65 +88,108 @@ textarea:focus {
     height: calc(20% - 2em);
 }
 
-#io {
-    display: inline-block;
-    width: calc(100% - var(--button-width));
-    padding: 0;
-    margin: 0;
+button {
+    display: block;
+    position: relative;
+    border: 1px solid var(--border);
+    outline: none;
+    cursor: pointer;
+    margin: 1em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-button {
-    word-wrap: break-word;
+span {
+    display: block;
+    padding: 25px 80px;
+}
 
-    background-color: var(--background2);
-    color: var(--text-normal);
+button::before,
+button::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--highlight);
+}
 
-    outline: none;
-    border: 1px solid var(--border);
+button:focus::before,
+button:focus::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--focus);
+}
 
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+span::before,
+span::after {
+    content: "";
+    width: 2px;
+    height: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--highlight);
+}
 
+button:focus span::before,
+button:focus span::after {
+    content: "";
+    width: 2px;
+    height: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--focus);
+}
+
+button:hover::before,
+button:hover::after {
     width: 100%;
 }
 
-button:hover {
-    border:none
+button:hover span::before,
+button:hover span::after {
+    height: 100%;
+    border: none;
 }
 
-.borderfill {
-    display: flex;
-
-    position: absolute;
-    top: calc((35% - 2em) - (var(--button-height) / 2) + 16px);
-    width: var(--button-width);
-    height: var(--button-height);
-    right: 16px;
-
-    padding: 2px;
-
-    background-image: linear-gradient(var(--highlight), var(--highlight));
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    transition: background-size 0.25s ease-in-out;
+button:focus::before,
+button:focus::after {
+    width: 100%;
 }
 
-.borderfill:hover {
-    background-size: 100% 100%;
-    transition: background-size 0.25s ease-in-out;
+button:focus span::before,
+button:focus span::after {
+    height: 100%;
+    border: none;
 }
 
-.borderfill:focus-within {
-    background-image: linear-gradient(var(--pink), var(--pink));
-    background-size: 100% 100%;
-    transition: background-size 0.25s ease-in-out;
+.borderbutton::after {
+    right: 0;
+    bottom: 0;
+    transition-duration: 0.4s;
 }
 
-/*
-* TODO: relative layout
-*/
+.borderbutton span::after {
+    right: 0;
+    bottom: 0;
+    transition-duration: 0.4s;
+}
+
+.borderbutton::before {
+    left: 0;
+    top: 0;
+    transition-duration: 0.4s;
+}
+
+.borderbutton span::before {
+    left: 0;
+    top: 0;
+    transition-duration: 0.4s;
+}
+
 .notification {
     position: absolute;
     top: 0;

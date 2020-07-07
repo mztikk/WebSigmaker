@@ -36,11 +36,9 @@ textarea {
     color: var(--text-normal);
 
     border: 1px solid var(--border);
+    outline: none;
 
     padding: 0.5em;
-
-    /* outline-color: var(--highlight); */
-    outline: none;
 }
 
 textarea:hover {

@@ -165,7 +165,7 @@ function errorNotification(message, displayTime = 5000) {
     }
     notifDiv = document.createElement("div");
     notifDiv.innerText = String(message);
-    notifDiv.classList.add("alert");
+    notifDiv.classList.add("notification");
     notifDiv.classList.add("slide-bottom");
     document.body.appendChild(notifDiv);
     setTimeout(() => {

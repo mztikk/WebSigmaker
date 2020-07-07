@@ -37,7 +37,7 @@ module StringR {
         while (i < str.length) {
             let c = str[i++]
             rtn.push(c)
-            if (i % n == 0) {
+            if (i % n == 0 && i < str.length) {
                 rtn.push(seperator)
             }
         }

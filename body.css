@@ -95,14 +95,13 @@ button {
     background-size: 0% 100%;
     background-image: linear-gradient(var(--highlight), var(--highlight));
     background-repeat: no-repeat;
-    transition: all 0.3s ease-in-out;
+    transition: background-size 0.3s ease-in-out;
     animation-direction: alternate;
 }
 
 button:hover {
     background-size: 100% 100%;
-    /* color: #ececec; */
-    transition: all 0.3s ease-in-out;
+    transition: background-size 0.3s ease-in-out;
 }
 
 button:focus {

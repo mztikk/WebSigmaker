@@ -17,13 +17,17 @@
     --highlight: var(--blue);
 }
 
+* {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-normal);
+}
+
 html,
 body {
     padding: 0;
     margin: 0;
 
     background-color: var(--background1);
-    color: var(--text-normal);
 }
 
 textarea {
@@ -65,44 +69,48 @@ textarea:focus {
 }
 
 button {
+    word-wrap: break-word;
+
     background-color: var(--background2);
     color: var(--text-normal);
 
-    word-wrap: break-word;
-    /* -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box; */
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    border: 1px solid;
-    border-color: var(--border);
-    /* display: block; */
-    top: calc((35% - 2em) - (var(--button-height) / 2) + 16px);
-    width: var(--button-width);
-    height: var(--button-height);
-    right: 16px;
-
     outline: none;
+    border: none;
 
     font-weight: 700;
     font-size: 15px;
     letter-spacing: 2px;
     text-transform: uppercase;
 
-    background-size: 0% 100%;
+    width: 100%;
+}
+
+.borderfill {
+    display: flex;
+
+    position: absolute;
+    top: calc((35% - 2em) - (var(--button-height) / 2) + 16px);
+    width: var(--button-width);
+    height: var(--button-height);
+    right: 16px;
+
+    padding: 2px;
+
     background-image: linear-gradient(var(--highlight), var(--highlight));
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
+    background-size: 0% 100%;
     transition: background-size 0.3s ease-in-out;
 }
 
-button:hover {
+.borderfill:hover {
     background-size: 100% 100%;
     transition: background-size 0.3s ease-in-out;
 }
 
-button:focus {
-    border-color: var(--pink);
+.borderfill:focus-within {
+    background-image: linear-gradient(var(--pink), var(--pink));
+    background-size: 100% 100%;
+    transition: background-size 0.3s ease-in-out;
 }
 
 /*
@@ -114,7 +122,10 @@ button:focus {
     left: 2em;
     padding: 1em;
     background-color: var(--red);
-    border-radius: 0.5em;
+    /* border-radius: 0.5em; */
+    /* border: 1px solid;
+    border-color: var(--pink);
+    background-color: var(--background1); */
     transition: all 500ms ease-in-out;
 }
 

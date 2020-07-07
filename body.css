@@ -75,7 +75,7 @@ button {
     color: var(--text-normal);
 
     outline: none;
-    border: none;
+    border: 1px solid var(--border);
 
     font-weight: 700;
     font-size: 15px;
@@ -83,6 +83,10 @@ button {
     text-transform: uppercase;
 
     width: 100%;
+}
+
+button:hover {
+    border:none
 }
 
 .borderfill {
@@ -97,20 +101,20 @@ button {
     padding: 2px;
 
     background-image: linear-gradient(var(--highlight), var(--highlight));
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.25s ease-in-out;
 }
 
 .borderfill:hover {
     background-size: 100% 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.25s ease-in-out;
 }
 
 .borderfill:focus-within {
     background-image: linear-gradient(var(--pink), var(--pink));
     background-size: 100% 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.25s ease-in-out;
 }
 
 /*

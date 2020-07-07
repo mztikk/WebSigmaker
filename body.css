@@ -104,8 +104,8 @@ span {
     padding: 25px 80px;
 }
 
-button::before,
-button::after {
+.borderbutton::before,
+.borderbutton::after {
     content: "";
     width: 0;
     height: 2px;
@@ -114,8 +114,8 @@ button::after {
     background: var(--highlight);
 }
 
-button:focus::before,
-button:focus::after {
+.borderbutton:focus::before,
+.borderbutton:focus::after {
     content: "";
     width: 0;
     height: 2px;
@@ -124,8 +124,8 @@ button:focus::after {
     background: var(--focus);
 }
 
-span::before,
-span::after {
+.borderbutton span::before,
+.borderbutton span::after {
     content: "";
     width: 2px;
     height: 0;
@@ -134,8 +134,8 @@ span::after {
     background: var(--highlight);
 }
 
-button:focus span::before,
-button:focus span::after {
+.borderbutton:focus span::before,
+.borderbutton:focus span::after {
     content: "";
     width: 2px;
     height: 0;
@@ -144,24 +144,24 @@ button:focus span::after {
     background: var(--focus);
 }
 
-button:hover::before,
-button:hover::after {
+.borderbutton:hover::before,
+.borderbutton:hover::after {
     width: 100%;
 }
 
-button:hover span::before,
-button:hover span::after {
+.borderbutton:hover span::before,
+.borderbutton:hover span::after {
     height: 100%;
     border: none;
 }
 
-button:focus::before,
-button:focus::after {
+.borderbutton:focus::before,
+.borderbutton:focus::after {
     width: 100%;
 }
 
-button:focus span::before,
-button:focus span::after {
+.borderbutton:focus span::before,
+.borderbutton:focus span::after {
     height: 100%;
     border: none;
 }

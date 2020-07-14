@@ -82,7 +82,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -124,3 +123,5 @@ dist
 
 # Local History for Visual Studio Code
 .history/
+
+*.map
